@@ -10,10 +10,11 @@ import SwiftUI
 struct HomeView: View {
     
     @State private var height: Double = 150
-    @State private var mass: Double = 40
+    @State private var mass: Double = 42
     @State private var bmi: Double = 0.0
     @State private var healthStatus = "Healthy"
     @State private var healthAdvise = "Keep up the good work! Continue eating your 1 portion of protein, 1 more of carbos, and 2 of fruits and veg!"
+    @State private var isSheetPresented = true
     
     var body: some View {
         ZStack{
@@ -88,25 +89,37 @@ struct HomeView: View {
                         height -= 1
                     })
                     
-                    
-                    Button{
-                        bmi = mass / ((height / 100) * (height / 100))
-                        
-                        updateHealth()
-                    } label: {
-                        Text("calculate BMI")
-                    }
                 }
                 .frame(height: 200)
+                .listStyle(.inset)
+                
+                Spacer()
+                
+                Button{
+                    bmi = mass / ((height / 100) * (height / 100))
+                    
+                    updateHealth()
+                } label: {
+                    Text("calculate BMI")
+                        .padding()
+                        .background(.blue)
+                        .cornerRadius(15)
+                        .foregroundColor(.white)
+                }
                 
                 Spacer()
                 
             }
             .onAppear{
                 bmi = mass / ((height / 100) * (height / 100))
+                isSheetPresented = true
             }
         }
+        .sheet(isPresented: $isSheetPresented){
+            helpView()
+        }
     }
+    
     func updateHealth(){
         if bmi < 15.5 {
             let idealWeight = 18.5 * (height/100) * (height/100)
@@ -126,14 +139,14 @@ struct HomeView: View {
             
             healthStatus = "Overweight"
             
-            healthAdvise = "You need to exercise more! You have to work off \(Int(massDifference))kg"
+            healthAdvise = "You need to exercise more! You have to work off \(Int(massDifference * -1))kg"
         }else if bmi > 24.9 {
             let idealWeight = 24.9 * (height/100) * (height/100)
             let massDifference = idealWeight - mass
             
             healthStatus = "Overweight"
             
-            healthAdvise = "You need to exercise more! You have to work off \(Int(massDifference))kg"
+            healthAdvise = "You need to exercise more! You have to work off \(Int(massDifference * -1))kg"
         }else{
             healthAdvise = "Keep up the good work! Continue eating your 1 portion of protein, 1 more of carbos, and 2 of fruits and veg!"
             
