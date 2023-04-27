@@ -22,6 +22,17 @@ struct ContentView: View {
                     .tabItem{
                         Label("Health Tips",systemImage: "heart.text.square")
                     }
+                
+                HealthyMealsView()
+                    .tabItem{
+                        Label("Diet Plan", systemImage: "cup.and.saucer.fill")
+                    }
+                
+                WorkoutView()
+                    .tabItem{
+                        Label("Workout", systemImage: "figure.run")
+                    }
+                
             }
         }
     }

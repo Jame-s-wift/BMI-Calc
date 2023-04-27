@@ -15,12 +15,10 @@ struct HomeView: View {
     @State private var healthStatus = "Healthy"
     @State private var healthAdvise = "Keep up the good work! Continue eating your 1 portion of protein, 1 more of carbos, and 2 of fruits and veg!"
     @State private var isSheetPresented = true
+    @State private var hasAppeared = false
     
     var body: some View {
         ZStack{
-            
-            LinearGradient(colors: [.gray, .white], startPoint: .top, endPoint: .center)
-                .ignoresSafeArea()
             
             VStack {
                 
@@ -43,9 +41,9 @@ struct HomeView: View {
                     .font(.title2)
                     .bold()
                     .padding()
-//                    .background(.blue.opacity(0.7))
-//                    .cornerRadius(15)
-//
+                //                    .background(.blue.opacity(0.7))
+                //                    .cornerRadius(15)
+                //
                 Spacer()
                 
                 VStack{
@@ -88,37 +86,48 @@ struct HomeView: View {
                             , onDecrement: {
                         height -= 1
                     })
-                    
                 }
-                .frame(height: 200)
+                .frame(height: 120)
                 .listStyle(.inset)
                 
-                Spacer()
-                
-                Button{
-                    bmi = mass / ((height / 100) * (height / 100))
+                Group {
+                    Spacer()
                     
-                    updateHealth()
-                } label: {
-                    Text("calculate BMI")
-                        .padding()
-                        .background(.blue)
-                        .cornerRadius(15)
-                        .foregroundColor(.white)
+                    Button{
+                        bmi = mass / ((height / 100) * (height / 100))
+                        
+                        updateHealth()
+                    } label: {
+                        Text("calculate BMI")
+                            .padding()
+                            .background(.blue)
+                            .cornerRadius(15)
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
                 }
                 
-                Spacer()
                 
             }
             .onAppear{
                 bmi = mass / ((height / 100) * (height / 100))
-                isSheetPresented = true
+                if hasAppeared {
+                    
+                } else{
+                    isSheetPresented = true
+                    hasAppeared = true
+                }
             }
         }
         .sheet(isPresented: $isSheetPresented){
             helpView()
         }
     }
+    
     
     func updateHealth(){
         if bmi < 15.5 {
@@ -155,8 +164,10 @@ struct HomeView: View {
     }
 }
 
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
 }
+

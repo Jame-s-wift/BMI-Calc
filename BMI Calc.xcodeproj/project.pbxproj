@@ -14,6 +14,8 @@
 		1A56D65129F9644300927E93 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56D65029F9644300927E93 /* HomeView.swift */; };
 		1A56D65329F9673F00927E93 /* HealthTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56D65229F9673F00927E93 /* HealthTipsView.swift */; };
 		1A56D65529F9701200927E93 /* helpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56D65429F9701200927E93 /* helpView.swift */; };
+		1A56D65729FA27E100927E93 /* HealthyMealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56D65629FA27E100927E93 /* HealthyMealsView.swift */; };
+		1A75B71329FABC9A00A1D422 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A75B71229FABC9A00A1D422 /* WorkoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		1A56D65029F9644300927E93 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1A56D65229F9673F00927E93 /* HealthTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTipsView.swift; sourceTree = "<group>"; };
 		1A56D65429F9701200927E93 /* helpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpView.swift; sourceTree = "<group>"; };
+		1A56D65629FA27E100927E93 /* HealthyMealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyMealsView.swift; sourceTree = "<group>"; };
+		1A75B71229FABC9A00A1D422 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 		1A56D63629F9575700927E93 = {
 			isa = PBXGroup;
 			children = (
+				1A75B71229FABC9A00A1D422 /* WorkoutView.swift */,
 				1A56D64129F9575700927E93 /* BMI Calc */,
 				1A56D64029F9575700927E93 /* Products */,
 			);
@@ -57,6 +62,7 @@
 		1A56D64129F9575700927E93 /* BMI Calc */ = {
 			isa = PBXGroup;
 			children = (
+				1A56D65629FA27E100927E93 /* HealthyMealsView.swift */,
 				1A56D64229F9575700927E93 /* BMI_CalcApp.swift */,
 				1A56D64429F9575700927E93 /* ContentView.swift */,
 				1A56D65229F9673F00927E93 /* HealthTipsView.swift */,
@@ -147,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A56D65329F9673F00927E93 /* HealthTipsView.swift in Sources */,
+				1A75B71329FABC9A00A1D422 /* WorkoutView.swift in Sources */,
 				1A56D65129F9644300927E93 /* HomeView.swift in Sources */,
+				1A56D65729FA27E100927E93 /* HealthyMealsView.swift in Sources */,
 				1A56D64529F9575700927E93 /* ContentView.swift in Sources */,
 				1A56D65529F9701200927E93 /* helpView.swift in Sources */,
 				1A56D64329F9575700927E93 /* BMI_CalcApp.swift in Sources */,

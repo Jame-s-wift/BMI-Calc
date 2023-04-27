@@ -18,7 +18,7 @@ struct helpView: View {
     @State private var pageNumber = 0
     @State private var titlePageNumber = 0
     @State private var buttonLabel = "Next"
-    @State private var imageName = ""
+    @State private var imageName = "image0"
     
     var body: some View {
         VStack{
@@ -30,28 +30,28 @@ struct helpView: View {
                 .font(.title3)
                 .fontWeight(.medium)
                 .padding()
-            Image("image0")
+            Image(imageName)
                 .resizable()
                 .scaledToFit()
                 .border(.black)
-                .frame(height: 100)
+                .frame(height: 200)
                 .padding()
             
             Button{
-                if pageNumber == 0 {
-                    pageNumber = 1
-                    imageName = "image1"
-                } else if pageNumber == 1{
-                    pageNumber = 2
-                    imageName = "image2"
-                } else if pageNumber == 2{
-                    pageNumber = 3
-                    imageName = "image3"
-                } else if pageNumber == 3{
-                    pageNumber = 4
-                    imageName = "image4"
-                    titlePageNumber = 1
+                if pageNumber < description.count - 1 {
+                    pageNumber += 1
+                    imageName = "image\(pageNumber)"
+                } else if pageNumber < description.count - 1{
+                    pageNumber += 1
+                    imageName = "image\(pageNumber)"
+                } else if pageNumber < description.count - 1{
+                    pageNumber += 1
+                    imageName = "image\(pageNumber)"
+                } else if pageNumber < description.count - 1{
                     buttonLabel = "Swipe down to continue"
+                    pageNumber += 1
+                    imageName = "image\(pageNumber)"
+                    titlePageNumber += 1
                 } else{
                     
                 }

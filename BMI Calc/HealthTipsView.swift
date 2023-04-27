@@ -56,12 +56,11 @@ struct HealthTipsView: View {
             } label: {
                 HStack{
                     Text("Next tip")
-                        .font(.title)
                     Image(systemName: "chevron.right")
                         .font(.title)
                 }
                 .padding()
-                .background(.blue.opacity(0.7))
+                .background(.blue)
                 .foregroundColor(.white)
                 .cornerRadius(15)
                 .padding()
